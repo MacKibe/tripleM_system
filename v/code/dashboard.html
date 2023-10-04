@@ -9,14 +9,29 @@
   </head>
   <body>
     <!-- Contains our logo and Company title -->
-    <header></header>
+    <header>Dashboard.</header>
     <!-- The side panel -->
     <aside></aside>
     <!-- image section -->
     <div class="images_section" id="images_section"></div>
     <!-- transccription section -->
-    <div class="transcription_section" id="transcription_section"></div>
+    <div class="transcription_section" id="transcription_section">
+      <form>
+        <h2>Document Details.</h2>
+        <label for="document"> Document Id:</label>
+        <input id="document" class="document" type="text" size="60" readonly />
+        <label for="title_no"> Title No: </label>
+        <input id="title_no" type="text" size="60" readonly/>
+        <label for="area"> Approximate Area:</label>
+        <input id="area" type="text" size="10" readonly/>
+        <label for="regno"> Registry Sheet No:</label>
+        <input id="regno" type="text" size="10" readonly/>
+        <label for="owner"> Persons Of Interest:</label>
+        <input id="owner" type="text" size="60" readonly></input>
+        <button id="edit_data_btn">Edit</button>
+      </form>
+    </div>
     <!-- The footer -->
-    <footer></footer>
+    <footer><span>&#169 Triple M</span></footer>
   </body>
 </html>

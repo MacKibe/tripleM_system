@@ -15,6 +15,9 @@ body {
 header {
   background-color: rgb(252, 231, 204);
   grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 aside {
   grid-area: aside;
@@ -28,10 +31,28 @@ aside {
   background-color: rgb(191, 255, 255);
   grid-area: transcription_section;
 }
+.transcription_section form {
+  background-color: aliceblue;
+  max-width: 80%;
+  margin: 0 auto;
+  font-size: 150%;
+}
+form > * {
+  display: block;
+  margin-bottom: 2%;
+}
+form button {
+  width: 30%;
+  aspect-ratio: 5/1;
+}
 footer {
   background-color: rgb(193, 193, 255);
   grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 @media (max-width: 600px) and (orientation: portrait) {
   body {
     grid-template-columns: 1fr;
