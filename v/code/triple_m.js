@@ -72,13 +72,13 @@ var triple_m = /** @class */ (function (_super) {
         //
         // the image panel
         //
-        var images_section = document.getElementById("");
+        _this.images_section = document.getElementById("images_section");
         // the transcript panel
         //
-        var transcription_section = document.getElementById("transcription_section");
+        _this.transcription_section = document.getElementById("transcription_section");
         //
         // the folder panel
-        var folder_section = document.getElementById("folder_section");
+        _this.folder_section = document.getElementById("folder_section");
         return _this;
         //
         //
@@ -108,99 +108,31 @@ var triple_m = /** @class */ (function (_super) {
         });
     };
     //
-    // Load the current document to the home page depending
+    // Load documents to the home page depending
     triple_m.prototype.load_title = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var pages, _i, _a, key;
-            return __generator(this, function (_b) {
+            var pages;
+            return __generator(this, function (_a) {
                 pages = JSON.parse(this.docs[this.counter].pages);
                 //
                 // Create the first page, including its image
                 this.populate_documents(pages[0]);
-                //
-                // Fill the transcription panel
-                for (_i = 0, _a = [
-                    "document",
-                    "title_no",
-                    "category",
-                    "area",
-                    "owner",
-                    "regno",
-                ]; _i < _a.length; _i++) {
-                    key = _a[_i];
-                    this.fill_transcriptions(key);
-                }
                 return [2 /*return*/];
             });
         });
     };
     //
-    //clear all the 3 panels
-    //   clear_panels() {
-    //     //
-    //     // Clear the images page
-    //     this.images_section.innerHTML = "";
-    //     //
-    //     // Clear all the inputs of the transcription panel, by looping over all
-    //     // the keys of a document, except the pages key
-    //     /*
-    //         document:string,
-    //             pages:string,
-    //             title_no:string,
-    //             category:string,
-    //             area:number,
-    //             owner:string,
-    //             regno:string
-    //         */
-    //     for (const key of [
-    //       "document",
-    //       "title_no",
-    //       "category",
-    //       "area",
-    //       "owner",
-    //       "regno",
-    //     ]) {
-    //       //
-    //       // Skip the pages key (because it is a special key)
-    //       if (key === "pages") continue;
-    //       //
-    //       // Get the named element
-    //       const element = <HTMLInputElement>document.getElementById(key);
-    //       //
-    //       // Se its value to empty
-    //       element.value = "";
-    //     }
-    //   }
+    // Polpulates my images section with images
     triple_m.prototype.populate_documents = function (page) {
         //
         // Create an image element for this page
         var image = document.createElement("img");
         //
         // Set the source of the image to the URL of the page
-        image.src = "http://localhost".concat(page[0].url);
+        image.src = "http://localhost".concat(page.url);
         //
         // Attach the image element to the other-pages div element
         this.images_section.appendChild(image);
-    };
-    //
-    // Fill the transcriptions, by transferring the values from from the global
-    // array, data array to
-    // the transciption panel
-    triple_m.prototype.fill_transcriptions = function (key) {
-        //
-        //Skip the pages key (because it is a special key)
-        if (key === "pages")
-            return;
-        //
-        //Get the named element
-        var element = document.getElementById(key);
-        //
-        //Get the value that maches the key
-        var value = this.docs[this.counter][key];
-        //
-        //Set the element vale only if the value is not null
-        if (value !== null)
-            element.value = String(value);
     };
     return triple_m;
 }(view.page));

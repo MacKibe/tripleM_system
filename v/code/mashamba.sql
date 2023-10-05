@@ -13,6 +13,6 @@ from image
     left join title on document.document = title.document
     left join category on document.category = category.category
 WHERE title.id
-    is null
+    is NOT null
 group by
     document.document;
