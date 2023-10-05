@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./triple_m.css" />
-    <script type="module" src="./triple_m.js"></script>
+    <!--
+      Code for controlling this page-->
+    <script type="module">
+      //
+      // Import the class that carries our code, from mashama.js file
+      import { triple_m } from "./triple_m.js";
+      //
+      //After the page loads....
+      window.onload = async () => {
+        //
+        //Create the mashmba page
+        const Page = new triple_m();
+        //
+        //Show the masmba system,
+        await Page.show_panels();
+      };
+      </script>
   </head>
   <body>
     <!-- Contains our logo and Company title -->
     <header>Dashboard.</header>
     <!-- The side panel -->
-    <aside></aside>
+    <aside id="folder_section"></aside>
     <!-- image section -->
     <div class="images_section" id="images_section"></div>
     <!-- transccription section -->
@@ -19,7 +35,7 @@
       <form>
         <h2>Document Details.</h2>
         <label for="document"> Document Id:</label>
-        <input id="document" class="document" type="text" size="60" readonly />
+        <input id="document" type="text" size="60" readonly />
         <label for="title_no"> Title No: </label>
         <input id="title_no" type="text" size="60" readonly/>
         <label for="area"> Approximate Area:</label>
