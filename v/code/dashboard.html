@@ -35,15 +35,15 @@
       <form>
         <h2>Document Details.</h2>
         <label for="document"> Document Id:</label>
-        <input id="document" type="text" maxlength="60" readonly />
+        <input id="document" class="document" type="text" maxlength="30" readonly />
         <label for="title_no"> Title No: </label>
-        <input id="title_no" type="text" size="60" readonly/>
+        <input id="title_no" class="title_no" type="text" maxlength="200" readonly/>
         <label for="area"> Approximate Area:</label>
-        <input id="area" type="text" size="10" readonly/>
+        <input id="area" type="text" class="area" maxlength="25" readonly/>
         <label for="regno"> Registry Sheet No:</label>
-        <input id="regno" type="text" size="10" readonly/>
+        <input id="regno" type="text" class="regno" maxlength="200" readonly/>
         <label for="owner"> Persons Of Interest:</label>
-        <input id="owner" type="text" size="60" readonly></input>
+        <input id="owner" type="text" class="owner" maxlength="60" readonly></input>
         <button id="edit_data_btn">Edit</button>
       </form>
     </div>

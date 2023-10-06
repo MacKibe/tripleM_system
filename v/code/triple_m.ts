@@ -20,10 +20,10 @@ type doc = {
 };
 //
 // A page comprises of just a number and the url of the image
-type page = { 
-    num: string; 
-    url: string; 
-    name: string 
+type page = {
+  num: string;
+  url: string;
+  name: string;
 };
 //
 //
@@ -42,6 +42,9 @@ export class triple_m extends view.page {
   //
   // This is the side panel that represents shows the folders of the documents.
   public folder_section: HTMLElement;
+  //
+  //The couner for documents being displayed
+  public counter: number = 0;
   //
   // The results of interrogating the database is an array of documents
   public docs?: Array<doc>;
@@ -70,7 +73,7 @@ export class triple_m extends view.page {
   public async show_panels(): Promise<void> {
     //
     // Load documents
-    this.docs = <Array<doc>>(
+    this.docs = (
       await server.exec(
         "database",
         ["mutall_mashamba", false],
@@ -87,22 +90,18 @@ export class triple_m extends view.page {
   async load_title() {
     //
     // Get the pages of the given current document number
-    const pages: Array<page> = JSON.parse(this.docs![this.counter].pages);
+    const pages:Array<document: string,pages: string,title_no: string,category: string,area: number,owner: string,regno: string>= JSON.parse(this.docs);
     //
     // Create the first page, including its image
-    this.populate_documents(pages[0]);
-  }
-  //
-  // Polpulates my images section with images
-  populate_documents(page: page) {
-    //
-    // Create an image element for this page
-    const image = document.createElement("img");
-    //
-    // Set the source of the image to the URL of the page
-    image.src = `http://localhost${page.url}`;
-    //
-    // Attach the image element to the other-pages div element
-    this.images_section.appendChild(image);
+    pages.forEach((page) => {
+      // Create an image element for this page
+      const image = document.createElement("img");
+      //
+      // Set the source of the image to the URL of the page
+      image.src = `http://localhost${page.url}`;
+      //
+      // Attach the image element to the other-pages div element
+      this.images_section.appendChild(image);
+    });
   }
 }
