@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script></script>
+</head>
+<body>
+    <form></form>
+    <!-- php File -->
+    <?php
+    $database_name = "mutall_mashamba";
+    $server_name = "root";
+    $password = "";
+    
+    // create connection
+    $connection = mysq
+    ?>
+</body>
+</html>
